@@ -1,18 +1,5 @@
 {
   "presets": ["babel-preset-expo"],
-  "plugins": [
-    [
-      "import",
-      {
-        "libraryName": "react",
-        "libraryDirectory": "./"
-      },
-      {
-        "libraryName": "react-native",
-        "libraryDirectory": "./"
-      }
-    ]
-  ],
   "env": {
     "development": {
       "plugins": ["transform-react-jsx-source"]

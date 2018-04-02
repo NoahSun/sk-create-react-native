@@ -1,12 +1,5 @@
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  View,
-  Image,
-  Text,
-  TextInput
-} from 'react-native';
+import { AppRegistry, StyleSheet, View, Image, Text } from 'react-native';
 
 import PizzaTranslator from './components/PizzaTranslator';
 
@@ -66,7 +59,6 @@ export default class App extends Component {
           <View
             style={{
               flex: 1
-              // width: '100%'
             }}
           >
             <Greeting name="Noah" />

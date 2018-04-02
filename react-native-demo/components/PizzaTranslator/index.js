@@ -2,21 +2,33 @@ import React, { Component } from 'react';
 import { View, Text, TextInput } from 'react-native';
 
 export default class PizzaTranslator extends Component {
-  state = { text: '' };
-
   constructor(props) {
     super(props);
+    this.state = {
+      text: ''
+    };
   }
 
   render() {
     const { text } = this.state;
     return (
-      <View style={{ padding: 10 }}>
+      <View
+        style={{
+          padding: 12,
+          width: '100%'
+        }}
+      >
         <TextInput
           style={{ height: 50 }}
-          onChange={text => this.setState({ text })}
+          placeholder="Type here to translate!"
+          onChangeText={text => this.setState({ text })}
         />
-        <Text>{text.split(' ').map(word => word && '🍕')}</Text>
+        <Text style={{ padding: 10, fontSize: 42 }}>
+          {text
+            .split(' ')
+            .map(word => word && '🍕')
+            .join(' ')}
+        </Text>
       </View>
     );
   }
