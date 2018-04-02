@@ -1,5 +1,14 @@
 {
   "presets": ["babel-preset-expo"],
+  "plugins": [
+    [
+      "import",
+      {
+        "libraryName": "",
+        "libraryDirectory": ""
+      }
+    ]
+  ],
   "env": {
     "development": {
       "plugins": ["transform-react-jsx-source"]

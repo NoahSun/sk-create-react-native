@@ -1,30 +1,28 @@
 import React, { Component } from 'react';
-import { AppRegistry, Image, Text, View } from 'react-native';
+import { AppRegistry, StyleSheet, Image, Text, View } from 'react-native';
+
+const styles = StyleSheet.create({
+  colHorAndVerCenterContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: 'red'
+  },
+  horAndVerCenterText: {
+    alignItems: 'center',
+    textAlignVertical: 'center',
+    textDecorationStyle: 'solid',
+    borderWidth: 2,
+    borderColor: 'powderblue',
+    textAlign: 'center'
+  }
+});
 
 class Greeting extends Component {
   render() {
-    
     return (
-      <View
-        style={{
-          flex: 1,
-          flexDirection: 'column',
-          justifyContent: 'center'
-        }}
-      >
-        <Text
-          style={{
-            alignItems: 'center',
-            textAlignVertical: 'center',
-            textDecorationLine: 'line-through',
-            textDecorationStyle: 'solid',
-            borderWidth: 2,
-            borderColor: 'red',
-            textAlign: 'center'
-          }}
-        >
-          Hello {this.props.name}
-        </Text>
+      <View style={styles.colHorAndVerCenterContainer}>
+        <Text style={styles.horAndVerCenterText}>Hello {this.props.name}</Text>
       </View>
     );
   }
@@ -38,28 +36,27 @@ export default class App extends Component {
     };
     return (
       <View
-        style={{
-          flex: 1,
-          alignContent: 'center',
-          alignItems: 'center',
-          justifyContent: 'space-between'
-        }}
+        style={[
+          styles.colHorAndVerCenterContainer,
+          {
+            justifyContent: 'space-between'
+          }
+        ]}
       >
         <View
           style={{
             flex: 1,
             alignItems: 'center',
             alignContent: 'center',
-            borderColor: 'blue',
+            borderColor: 'steelblue',
             borderWidth: 2
           }}
         >
           <Image source={pic} style={{ flex: 1, width: 100, height: 50 }} />
           <View
             style={{
-              flex: 1,
-              alignContent: 'flex-end',
-              flexDirection: 'column'
+              flex: 1
+              // width: '100%'
             }}
           >
             <Greeting name="Noah" />
@@ -68,7 +65,14 @@ export default class App extends Component {
           </View>
         </View>
 
-        <View style={{ flex: 1, alignItems: 'center', alignContent: 'center' }}>
+        <View
+          style={{
+            display: 'flex',
+            flex: 1,
+            alignItems: 'center',
+            alignContent: 'center'
+          }}
+        >
           <Image source={pic} style={{ width: 100, height: 50 }} />
           <Greeting name="Noah" />
           <Greeting name="Jessica" />
