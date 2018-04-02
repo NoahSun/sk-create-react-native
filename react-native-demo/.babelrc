@@ -4,8 +4,12 @@
     [
       "import",
       {
-        "libraryName": "",
-        "libraryDirectory": ""
+        "libraryName": "react",
+        "libraryDirectory": "./"
+      },
+      {
+        "libraryName": "react-native",
+        "libraryDirectory": "./"
       }
     ]
   ],

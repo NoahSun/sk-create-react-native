@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Image, Text, View } from 'react-native';
+import {
+  AppRegistry,
+  StyleSheet,
+  View,
+  Image,
+  Text,
+  TextInput
+} from 'react-native';
+
+import PizzaTranslator from './components/PizzaTranslator';
 
 const styles = StyleSheet.create({
   colHorAndVerCenterContainer: {
@@ -52,6 +61,7 @@ export default class App extends Component {
             borderWidth: 2
           }}
         >
+          <PizzaTranslator />
           <Image source={pic} style={{ flex: 1, width: 100, height: 50 }} />
           <View
             style={{
@@ -63,20 +73,6 @@ export default class App extends Component {
             <Greeting name="Jessica" />
             <Greeting name="Otherone" />
           </View>
-        </View>
-
-        <View
-          style={{
-            display: 'flex',
-            flex: 1,
-            alignItems: 'center',
-            alignContent: 'center'
-          }}
-        >
-          <Image source={pic} style={{ width: 100, height: 50 }} />
-          <Greeting name="Noah" />
-          <Greeting name="Jessica" />
-          <Greeting name="Otherone" />
         </View>
       </View>
     );
