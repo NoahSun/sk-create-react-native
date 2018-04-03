@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, View, Image, Text } from 'react-native';
+import {
+  AppRegistry,
+  StyleSheet,
+  View,
+  Alert,
+  Button,
+  Image,
+  Text
+} from 'react-native';
 
 import PizzaTranslator from './components/PizzaTranslator';
+import ButtonBox from './components/ButtonBox';
 
 const styles = StyleSheet.create({
   colHorAndVerCenterContainer: {
@@ -55,6 +64,7 @@ export default class App extends Component {
           }}
         >
           <PizzaTranslator />
+          <ButtonBox/>
           <Image source={pic} style={{ flex: 1, width: 100, height: 50 }} />
           <View
             style={{
