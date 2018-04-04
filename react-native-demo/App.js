@@ -64,8 +64,8 @@ export default class App extends Component {
           }}
         >
           <PizzaTranslator />
-          <ButtonBox/>
-          <Image source={pic} style={{ flex: 1, width: 100, height: 50 }} />
+          <ButtonBox />
+          <Image source={pic} style={{ width: 100, height: 50 }} />
           <View
             style={{
               flex: 1
