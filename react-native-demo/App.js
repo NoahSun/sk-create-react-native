@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
+  ActivityIndicator,
   StyleSheet,
+  ScrollView,
   View,
   Alert,
   Button,
   Image,
-  Text
+  Text,
+  FlatList
 } from 'react-native';
 
 import PizzaTranslator from './components/PizzaTranslator';
@@ -26,6 +29,11 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: 'powderblue',
     textAlign: 'center'
+  },
+  listView: {
+    flex: 1,
+    paddingTop: 20,
+    justifyContent: 'center'
   }
 });
 
@@ -40,20 +48,53 @@ class Greeting extends Component {
 }
 
 export default class App extends Component {
+  state = {
+    isLoading: true,
+    dataSource: []
+  };
+
+  componentDidMount() {
+    this.fetchMovieData();
+  }
+
+  fetchMovieData = () => {
+    this.setState({
+      isLoading: true
+    });
+    fetch('https://facebook.github.io/react-native/movies.json')
+      .then(response => response.json())
+      .then(responseJson => {
+        this.setState({
+          isLoading: false,
+          dataSource: this.state.dataSource.concat(responseJson.movies)
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
   render() {
+    const { isLoading, dataSource } = this.state;
     let pic = {
       uri:
         'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
     };
     return (
-      <View
-        style={[
-          styles.colHorAndVerCenterContainer,
-          {
-            justifyContent: 'space-between'
-          }
-        ]}
-      >
+      <ScrollView>
+        <View style={styles.listView}>
+          <FlatList
+            data={dataSource}
+            renderItem={({ item }) => (
+              <Text>
+                {item.title}, {item.releaseYear}
+              </Text>
+            )}
+            keyExtractor={(item, index) => index.toString()}
+          />
+          {isLoading && <ActivityIndicator />}
+          <Button title="请求数据" onPress={this.fetchMovieData} />
+        </View>
         <View
           style={{
             flex: 1,
@@ -76,7 +117,7 @@ export default class App extends Component {
             <Greeting name="Otherone" />
           </View>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
